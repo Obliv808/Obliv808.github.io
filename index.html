@@ -3,46 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily World Market Tracker</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
-        table { border-collapse: collapse; width: 100%; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; }
-    </style>
+    <title>US Market Tracker</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Daily World Market Tracker</h1>
-    <table id="marketData">
-        <thead>
-            <tr>
-                <th>Market</th>
-                <th>Index</th>
-                <th>Current Value</th>
-                <th>Change</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Market data will be dynamically added here -->
-        </tbody>
-    </table>
-
-    <script>
-        // This is where you would add JavaScript to fetch and display market data
-        document.addEventListener('DOMContentLoaded', (event) => {
-            // Example data insertion, replace with API calls
-            const markets = [
-                { name: "US", index: "S&P 500", value: "4,750.12", change: "+0.5%" },
-                { name: "Europe", index: "Euro Stoxx 50", value: "4,023.45", change: "-0.2%" },
-                // Add more markets as needed
-            ];
-
-            const tableBody = document.querySelector("#marketData tbody");
-            markets.forEach(market => {
-                let row = tableBody.insertRow();
-                row.innerHTML = `<td>${market.name}</td><td>${market.index}</td><td>${market.value}</td><td>${market.change}</td>`;
-            });
-        });
-    </script>
+    <h1>US Market Tracker</h1>
+    <div id="market-data"></div>
+    <div id="heatmap" style="width: 100%; height: 400px;"></div>
+    <script src="heatmap.js"></script>
+    <script src="market-data.js"></script>
 </body>
 </html>
