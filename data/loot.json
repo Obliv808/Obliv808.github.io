@@ -1,122 +1,71 @@
-{
-    "Containers": [
-      {
+var lootData = [
+    // Containers
+    {
         "name": "Flat Chest",
         "type": "Container",
-        "variants": ["Normal", "High Roller"],
-        "loot_score": 405.02,
-        "gear_quality": 2.1,
-        "drop_locations": ["All maps"],
-        "notes": "Common container with moderate loot quality":cite[1]
-      },
-      {
+        "location": "All maps",
+        "drop_chance": 2.1,
+        "variant": "Normal/High Roller"
+    },
+    {
         "name": "Treasure Hoard",
         "type": "Container",
-        "loot_score": 1192.21,
-        "gear_quality": 2.38,
-        "drop_locations": ["Hidden rooms", "Boss areas"],
-        "notes": "High-value container with multiple loot rolls":cite[1]
-      },
-      {
-        "name": "Golden Chest",
-        "type": "Container",
-        "variants": ["Normal", "High Roller"],
-        "loot_score": 687.76,
-        "gear_quality": 3.44,
-        "drop_locations": ["Endgame zones"],
-        "notes": "Rare container with guaranteed rare+ items":cite[1]
-      }
-    ],
-    
-    "Monsters": [
-      {
-        "name": "Cave Troll",
-        "loot_table": "LootTable:Cave Troll Common",
-        "drops": [
-          {
-            "item": "Troll Hide",
-            "drop_chance": 15.5,
-            "notes": "Crafting material for heavy armor"
-          },
-          {
-            "item": "Stone Club",
-            "drop_chance": 8.2,
-            "rarity": "Uncommon"
-          }
-        ]:cite[1]
-      },
-      {
-        "name": "Lich",
-        "loot_table": "LootTable:Lich Elite",
-        "drops": [
-          {
-            "item": "Phylactery Shard",
-            "drop_chance": 3.7,
-            "rarity": "Epic"
-          },
-          {
-            "item": "Ancient Scroll",
-            "drop_chance": 12.1,
-            "quest_relation": "更像是家 (More Like Home)":cite[2]
-          }
-        ]
-      }
-    ],
-  
-    "QuestItems": [
-      {
+        "location": "Hidden rooms, Boss areas",
+        "drop_chance": 2.38
+    },
+
+    // Monster Drops
+    {
+        "name": "Troll Hide",
+        "type": "Crafting Material",
+        "location": "Cave Troll",
+        "drop_chance": 15.5
+    },
+    {
+        "name": "Stone Club",
+        "type": "Weapon",
+        "location": "Cave Troll",
+        "drop_chance": 8.2,
+        "rarity": "Uncommon"
+    },
+    {
+        "name": "Phylactery Shard",
+        "type": "Artifact",
+        "location": "Lich",
+        "drop_chance": 3.7,
+        "rarity": "Epic"
+    },
+
+    // Quest Items
+    {
         "name": "Cobalt Ore",
         "type": "Crafting Material",
-        "quest": "挖掘心灵的碎片 (Mining Heart Fragments)",
-        "rarity": "Common",
-        "drop_sources": [
-          "Cobalt Ore nodes",
-          "Mining enemies",
-          "Underground containers"
-        ]:cite[2]
-      },
-      {
+        "location": "Mining nodes/Enemies",
+        "drop_chance": 18.3,
+        "quest": "Mining Heart Fragments"
+    },
+    {
         "name": "Golden Key",
         "type": "Key",
-        "quest": "Legendary Treasure Hunt",
-        "rarity": "Legendary",
+        "location": "Golden Chests, Final Boss",
         "drop_chance": 0.8,
-        "drop_sources": [
-          "Golden Chests",
-          "Final Boss drops"
-        ]:cite[1]
-      }
-    ],
-  
-    "Artifacts": [
-      {
+        "rarity": "Legendary"
+    },
+
+    // Artifacts
+    {
         "name": "Arming Sword",
-        "damage": "40-41 Physical",
-        "effects": "Inflicts soul damage, 5 enchantment slots",
-        "drop_sources": [
-          {
-            "type": "Monster",
-            "probability": 0.4992,
-            "rolls": "1-3"
-          },
-          {
-            "type": "Loose Loot",
-            "probability": 0.1429,
-            "rolls": 1
-          }
-        ]:cite[4]
-      },
-      {
+        "type": "Weapon",
+        "location": "Monster drops/Loose loot",
+        "drop_chance": 0.4992,
+        "damage": "40-41 Physical"
+    },
+    {
         "name": "Stiletto Dagger",
-        "damage": "30-31 Physical",
-        "effects": "Death Flower debuff (3 stacks = 30 magic damage)",
-        "drop_sources": [
-          {
-            "type": "Monster",
-            "probability": 0.5988,
-            "rolls": "1-3"
-          }
-        ]:cite[4]
-      }
-    ]
-  }
+        "type": "Weapon",
+        "location": "Monster drops",
+        "drop_chance": 0.5988,
+        "effects": "Death Flower debuff"
+    }
+    // Add more items below...
+];
