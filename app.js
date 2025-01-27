@@ -1,4 +1,4 @@
-const API_KEY = 'S2Y39C9JB3RY1CBE'; // Get from https://www.alphavantage.co/support/#api-key
+const API_KEY = '4X9B62BGTQ1L4RVM'; // Get from https://www.alphavantage.co/support/#api-key
 const symbols = ['DJIA', 'SPX', 'NDX', 'AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA', 'META', 'NVDA'];
 
 async function fetchMarketData(symbol) {
