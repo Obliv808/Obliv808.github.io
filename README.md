@@ -1,112 +1,128 @@
-# US Market Tracker with Heatmap
+# 🌍 Real-Time Air Quality Dashboard [![GitHub Pages](https://img.shields.io/badge/-Live%20Demo-success?logo=github)](https://YOUR-GITHUB-USERNAME.github.io/REPO-NAME/)
 
-![Screenshot](https://via.placeholder.com/800x400.png?text=Market+Tracker+Screenshot) 
-*Replace with actual screenshot after deployment*
+[![GitHub Actions](https://github.com/YOUR-GITHUB-USERNAME/REPO-NAME/actions/workflows/update_data.yml/badge.svg)](https://github.com/YOUR-GITHUB-USERNAME/REPO-NAME/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-A real-time US market tracking dashboard featuring major indices, stock performance, and an interactive heatmap visualization. Built using free services and hosted on GitHub Pages.
+A modern, responsive dashboard for monitoring real-time air quality data using OpenWeatherMap API and GitHub Pages.
 
-## Features
+![Dashboard Preview](./screenshot.png)
 
-- Real-time tracking of major indices (DJIA, S&P 500, NASDAQ)
-- Heatmap visualization of stock performance
-- Auto-refreshing data every 5 minutes
-- Dark mode interface
-- Responsive design
-- Free-to-use infrastructure
+## ✨ Features
 
-## Technologies Used
+- Real-time air quality index (AQI) display
+- Interactive pollutant concentration charts
+- Glass-morphism UI design with animations
+- Automatic daily data updates via GitHub Actions
+- Health impact assessment based on AQI
+- Mobile-responsive layout
+- Secure API key management
+- Self-updating timestamp
 
-- Alpha Vantage API (market data)
-- Plotly.js (heatmap visualization)
-- GitHub Pages (hosting)
-- Vanilla JavaScript
-- CSS Grid/Flexbox
-
-## Demo
-
-Live Demo: [https://your-username.github.io/repo-name/](https://your-username.github.io/repo-name/)
-
-*Replace with your actual GitHub Pages URL*
-
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
-
 - GitHub account
-- [Alpha Vantage API key](https://www.alphavantage.co/support/#api-key) (free)
+- [OpenWeatherMap API Key](https://openweathermap.org/api)
+- Modern web browser
 
 ### Installation
-
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/repo-name.git
+git clone https://github.com/YOUR-GITHUB-USERNAME/REPO-NAME.git
+Get API Key:
 
-2. Get API key:
+Sign up at OpenWeatherMap
 
-Register at Alpha Vantage
+Add API key to GitHub Secrets:
 
-Get your free API key from the account section
+Go to Repository Settings → Secrets → Actions
 
-Configure application:
-
-Open app.js
-
-Replace YOUR_API_KEY with your actual Alpha Vantage API key
-
-Deployment
-Create new GitHub repository
-
-Add all project files to repository
+Add new secret named OWM_API_KEY
 
 Enable GitHub Pages:
 
-Go to Repository Settings > Pages
+Go to Repository Settings → Pages
 
-Select "Deploy from branch"
+Select deployment source (main branch /docs folder)
 
-Choose "main" branch and "/root" folder
+🔧 Configuration
+Edit these files for customization:
 
-Your site will be live at:
-https://<your-github-username>.github.io/<repository-name>/
+Cities: Modify coordinates in fetch_data.py
 
-Configuration
-Modify tracked symbols in app.js:
+Styling: Adjust CSS variables in index.html
 
-javascript
+Update Frequency: Change cron schedule in .github/workflows/update_data.yml
+
+python
 Copy
-const symbols = ['DJIA', 'SPX', 'NDX', 'AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA', 'META', 'NVDA'];
-Note: Free API tier allows max 25 requests/day (1 request per symbol)
+# fetch_data.py - Example city configuration
+CITIES = {
+    "London": (51.5074, -0.1278),
+    "New York": (40.7128, -74.0060)
+}
+🛠️ Deployment
+The dashboard is automatically deployed to GitHub Pages:
 
-Limitations
-Alpha Vantage free tier restrictions:
+bash
+Copy
+https://YOUR-GITHUB-USERNAME.github.io/REPO-NAME/
+🧰 Tech Stack
+Frontend
+HTML5
+JavaScript
+Plotly.js
+Bootstrap
 
-25 API requests per day
+Backend
+GitHub Actions
+Python
 
-5 requests per minute rate limit
+Services
+OpenWeatherMap
+GitHub Pages
 
-Data updates every 5 minutes
-
-Limited to US market symbols
-
-Contributing
-Contributions are welcome! Please follow these steps:
-
+🤝 Contributing
 Fork the project
 
-Create your feature branch (git checkout -b feature/AmazingFeature)
+Create your feature branch:
 
-Commit your changes (git commit -m 'Add some AmazingFeature')
+bash
+Copy
+git checkout -b feature/amazing-feature
+Commit changes:
 
-Push to the branch (git push origin feature/AmazingFeature)
+bash
+Copy
+git commit -m 'Add some amazing feature'
+Push to branch:
 
+bash
+Copy
+git push origin feature/amazing-feature
 Open a Pull Request
 
-License
+📄 License
 Distributed under the MIT License. See LICENSE for more information.
 
-Acknowledgments
-Market data provided by Alpha Vantage
+🌟 Acknowledgements
+Air Quality Data: OpenWeatherMap
 
-Visualization powered by Plotly.js
+Icons: Font Awesome
 
-Hosting by GitHub Pages
+Charting Library: Plotly.js
+
+Note: This project is for educational/demonstration purposes only. Not intended for production medical or environmental use.
+
+Copy
+
+**To use:**
+1. Copy all content between the triple backticks
+2. Paste into a new `README.md` file in your project
+3. Replace these placeholders:
+   - `YOUR-GITHUB-USERNAME`
+   - `REPO-NAME`
+   - Add actual screenshot (replace `screenshot.png`)
+4. Commit to your repository
+
+The badge links and GitHub Pages URL will automatically work once you update the placeholders with your actual GitHub information.
