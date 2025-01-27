@@ -2,19 +2,45 @@ const API_KEY = 'S2Y39C9JB3RY1CBE'; // Get from https://www.alphavantage.co/supp
 const symbols = ['DJIA', 'SPX', 'NDX', 'AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA', 'META', 'NVDA'];
 
 async function fetchMarketData(symbol) {
-    const response = await fetch(
-        `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${API_KEY}`
-    );
-    const data = await response.json();
-    return data;
+    try {
+        const response = await fetch(
+            `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${API_KEY}`
+        );
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        if (!data['Time Series (Daily)']) {
+            console.error('Data structure not as expected for symbol:', symbol, data);
+            return null;
+        }
+        return data;
+    } catch (error) {
+        console.error('Failed to fetch data for symbol:', symbol, error);
+        return null;
+    }
 }
 
 function updateMarketData(symbol, data) {
+    if (!data || !data['Meta Data'] || !data['Time Series (Daily)']) {
+        console.error('Invalid data structure for symbol:', symbol);
+        return { closePrice: 'N/A', change: 'N/A' };
+    }
     const lastRefreshed = data['Meta Data']['3. Last Refreshed'];
     const timeSeries = data['Time Series (Daily)'][lastRefreshed];
     
+    if (!timeSeries || !timeSeries['4. close']) {
+        console.error('No closing price data for symbol:', symbol);
+        return { closePrice: 'N/A', change: 'N/A' };
+    }
+    
     const closePrice = parseFloat(timeSeries['4. close']).toFixed(2);
-    const prevClose = parseFloat(data['Time Series (Daily)'][Object.keys(data['Time Series (Daily)'])[1]]['4. close']).toFixed(2);
+    const timeSeriesKeys = Object.keys(data['Time Series (Daily)']);
+    if (timeSeriesKeys.length < 2) {
+        console.error('Not enough historical data for change calculation for symbol:', symbol);
+        return { closePrice, change: 'N/A' };
+    }
+    const prevClose = parseFloat(data['Time Series (Daily)'][timeSeriesKeys[1]]['4. close']).toFixed(2);
     const change = ((closePrice - prevClose) / prevClose * 100).toFixed(2);
     
     return { closePrice, change };
@@ -49,9 +75,13 @@ async function updateAllData() {
 
 function updateIndexCard(elementId, price, change) {
     const element = document.getElementById(elementId);
-    element.querySelector('.price').textContent = `$${price}`;
-    element.querySelector('.change').textContent = `${change}%`;
-    element.querySelector('.change').className = `change ${change >= 0 ? 'positive' : 'negative'}`;
+    if (element) {
+        element.querySelector('.price').textContent = `$${price}`;
+        element.querySelector('.change').textContent = `${change}%`;
+        element.querySelector('.change').className = `change ${change >= 0 ? 'positive' : 'negative'}`;
+    } else {
+        console.error('Element not found with id:', elementId);
+    }
 }
 
 function createHeatmap(data) {
