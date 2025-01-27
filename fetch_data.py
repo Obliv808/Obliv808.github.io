@@ -1,13 +1,24 @@
-import requests  
-import json  
-import os  
+import os
+import requests
+import json
 
-API_KEY = os.environ['df2bb042c263dbfbedcf2972b8b32135']  
-LAT, LON = 32.7767, 96.7970  # Dallas coordinates  
+# Configuration
+CITIES = {
+    "London": (51.5074, -0.1278),
+    "New York": (40.7128, -74.0060)
+}
 
-response = requests.get(  
-  f"https://api.openweathermap.org/data/2.5/air_pollution?lat={LAT}&lon={LON}&appid={API_KEY}"  
-)  
+API_KEY = os.environ['df2bb042c263dbfbedcf2972b8b32135']
 
-with open('data/processed_data.json', 'w') as f:  
-  json.dump(response.json(), f)  
+def fetch_data():
+    all_data = {}
+    for city, (lat, lon) in CITIES.items():
+        url = f"https://api.openweathermap.org/data/2.5/air_pollution?lat={lat}&lon={lon}&appid={API_KEY}"
+        response = requests.get(url)
+        all_data[city] = response.json()
+    
+    with open('data/processed_data.json', 'w') as f:
+        json.dump(all_data, f, indent=2)
+
+if __name__ == "__main__":
+    fetch_data()
