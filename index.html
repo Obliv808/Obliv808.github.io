@@ -2,29 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- TradingView Lightweight Charts -->
-    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+    <title>Dark and Darker Loot Guide</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="dashboard">
-        <div class="search-container">
-            <input type="text" id="stockSymbol" placeholder="Enter symbol (e.g., AAPL)">
-            <button onclick="loadChart()">Search</button>
-        </div>
+    <div class="container">
+        <h1>Dark and Darker Loot Database</h1>
         
-        <div class="chart-container">
-            <div id="priceChart"></div>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search for loot...">
         </div>
-        
-        <div class="indicators">
-            <div class="indicator-box" id="priceChange"></div>
-            <div class="indicator-box" id="volume"></div>
-        </div>
+
+        <div id="results"></div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="data/loot.json"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

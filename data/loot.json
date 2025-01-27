@@ -1,0 +1,21 @@
+var lootData = [
+    {
+        "name": "Ancient Sword",
+        "type": "Weapon",
+        "location": "Forgotten Castle",
+        "drop_chance": 2.5
+    },
+    {
+        "name": "Crystal Orb",
+        "type": "Magic Item",
+        "location": "Dark Crypt",
+        "drop_chance": 1.8
+    },
+    {
+        "name": "Plate Armor",
+        "type": "Armor",
+        "location": "Abandoned Mine",
+        "drop_chance": 4.2
+    }
+    // Add more items here
+];

@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.search-box {
+    margin: 20px 0;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #444;
+    border-radius: 4px;
+    background-color: #333;
+    color: white;
+}
+
+.loot-item {
+    background-color: #2a2a2a;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.loot-name {
+    font-size: 1.2em;
+    color: #ffd700;
+}
+
+.loot-info {
+    margin-top: 10px;
+}
