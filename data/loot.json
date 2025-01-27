@@ -1,84 +1,117 @@
 var lootData = [
-    // Quest Items (from webpage 2)
+    // Weapons (from Artifacts page):cite[6]
+    {
+        "name": "Arming Sword",
+        "type": "Sword",
+        "location": "Monster drops, Loose loot",
+        "drop_chance": 0.4992,
+        "damage": "40-41 Physical",
+        "effects": ["Inflicts soul damage", "Up to 5 enchantments"],
+        "rarity": "Epic"
+    },
+    {
+        "name": "Morning Star",
+        "type": "Mace",
+        "location": "Boss drops",
+        "drop_chance": 0.0714,
+        "damage": "46-47 Physical",
+        "effects": ["-25% Physical Damage Reduction per hit"],
+        "rarity": "Legendary"
+    },
+
+    // Armor (from Equipment page):cite[10]
+    {
+        "name": "Fighter Cleric Plate",
+        "type": "Heavy Armor",
+        "location": "Forgotten Castle",
+        "drop_chance": 1.8,
+        "stats": {
+            "armor": 36,
+            "magic_resist": 12,
+            "move_speed": -4
+        },
+        "rarity": "Rare"
+    },
+    {
+        "name": "Rogue Shadow Hood",
+        "type": "Light Armor",
+        "location": "Dark Crypt",
+        "drop_chance": 4.5,
+        "stats": {
+            "armor": 14,
+            "agility": 5,
+            "visibility": -20
+        },
+        "rarity": "Uncommon"
+    },
+
+    // Quest Items:cite[1]:cite[4]
     {
         "name": "Cobalt Ore",
         "type": "Crafting Material",
-        "location": "Mining nodes/Enemies",
-        "drop_chance": 1.0
+        "location": "Mining Heart Fragments Quest",
+        "drop_chance": 18.3,
+        "quest_rewards": ["200 Gold", "Epic Lantern"]
     },
     {
         "name": "Golden Key",
         "type": "Key",
-        "location": "Golden Chests, Final Boss",
-        "drop_chance": 5.0  // From webpage 3 monster drop tables
-    },
-    {
-        "name": "Ancient Scroll",
-        "type": "Quest Item",
-        "location": "Lich",
-        "drop_chance": 12.1
+        "location": "Golden Chests",
+        "drop_chance": 0.8,
+        "rarity": "Legendary",
+        "quest": "藏金秘密 (Hidden Gold Secrets)"
     },
 
-    // Containers (from webpage 5)
+    // Artifacts:cite[6]
+    {
+        "name": "Crystal Ball of Truth",
+        "type": "Artifact",
+        "location": "Arch Lich",
+        "drop_chance": 0.07,
+        "effects": [
+            "Reveals hidden traps",
+            "+20% Magic Damage",
+            "Night Vision"
+        ],
+        "rarity": "Mythic"
+    },
+    
+    // Container Loot:cite[4]
     {
         "name": "Treasure Hoard",
         "type": "Container",
-        "location": "Hidden rooms, Boss areas",
-        "drop_chance": 2.38  // Gear Quality score converted
-    },
-    {
-        "name": "Golden Chest",
-        "type": "Container",
-        "location": "Endgame zones",
-        "drop_chance": 3.44
+        "location": "Hidden Rooms",
+        "drop_chance": 2.38,
+        "possible_drops": ["Epic Weapons", "Legendary Artifacts", "Gold"],
+        "loot_score": 1192.21
     },
 
-    // Monster Drops (from webpage 5 loot tables)
+    // Special Modifiers:cite[8]
     {
-        "name": "Troll Hide",
-        "type": "Crafting Material",
-        "location": "Cave Troll",
-        "drop_chance": 15.5
-    },
-    {
-        "name": "Phylactery Shard",
-        "type": "Artifact",
-        "location": "Lich",
-        "drop_chance": 3.7
+        "name": "Plate Armor of Strength",
+        "type": "Heavy Armor",
+        "location": "Abandoned Mine",
+        "drop_chance": 4.2,
+        "stats": {
+            "armor": 42,
+            "strength": 5,
+            "move_speed": -6
+        },
+        "modifiers": [
+            "Physical Damage Reduction +15%",
+            "Max Health +20"
+        ]
     },
 
-    // Location-Specific Loot (from webpage 7)
-    {
-        "name": "Campfire Kit",
-        "type": "Utility",
-        "location": "Library",
-        "drop_chance": 4.2
-    },
+    // Throwables:cite[1]
     {
         "name": "Francisca Axe",
         "type": "Throwable",
         "location": "Bat Cave",
-        "drop_chance": 6.8
-    },
-    {
-        "name": "Oil Lantern",
-        "type": "Utility",
-        "location": "Crossroads",
-        "drop_chance": 3.1
-    },
-
-    // High-Value Items
-    {
-        "name": "Legendary Felling Axe",
-        "type": "Weapon",
-        "location": "Treasure Hoard",
-        "drop_chance": 0.8  // From webpage 7 treasure hoard info
-    },
-    {
-        "name": "Diamond",
-        "type": "Treasure",
-        "location": "Royal Secret Quest",
-        "drop_chance": 0.3
+        "drop_chance": 6.8,
+        "damage": "35-40 Physical",
+        "effects": ["Bleed on hit"]
     }
-    // Add 50+ more items following this pattern...
+    
+    // 150+ more entries...
 ];
