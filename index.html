@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Market Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>🌍 Daily Market Tracker</h1>
+        <p>Last Updated: <span id="update-time"></span></p>
+    </header>
+
+    <main>
+        <section class="market-section">
+            <h2><i class="fas fa-chart-line"></i> Major Indices</h2>
+            <div class="cards-container" id="indices-container"></div>
+        </section>
+
+        <section class="market-section">
+            <h2><i class="fas fa-coins"></i> Exchange Rates</h2>
+            <div class="cards-container" id="forex-container"></div>
+        </section>
+
+        <section class="market-section">
+            <h2><i class="fas fa-gas-pump"></i> Commodities</h2>
+            <div class="cards-container" id="commodities-container"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Data updates daily via GitHub Actions | Source: Alpha Vantage</p>
+    </footer>
+</body>
+</html>
