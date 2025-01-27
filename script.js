@@ -5,6 +5,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Array of market indices you want to track
     const markets = [
         { name: "US", symbol: "SPX", index: "S&P 500" },
+        { name: "US", symbol: "DJI", index: "Dow Jones" },
+        { name: "US", symbol: "IXIC", index: "Nasdaq" },
+        { name: "Europe", symbol: "STOXX50E", index: "Euro Stoxx 50" },
+        { name: "UK", symbol: "UKX", index: "FTSE 100" },
+        { name: "Japan", symbol: "N225", index: "Nikkei 225" },
+        { name: "China", symbol: "000001.SS", index: "Shanghai Composite" },
+        { name: "Hong Kong", symbol: "HSI", index: "Hang Seng" },
+        { name: "Australia", symbol: "XJO", index: "ASX 200" },
+        { name: "Germany", symbol: "GDAXI", index: "DAX" },
+        { name: "France", symbol: "FCHI", index: "CAC 40" },
+        { name: "India", symbol: "BSESN", index: "BSE Sensex" },
+        { name: "Brazil", symbol: "BVSP", index: "Bovespa" },
+        { name: "Canada", symbol: "GSPTSE", index: "S&P/TSX Composite" }
         // Add more markets here, e.g., { name: "Europe", symbol: "STOXX50E", index: "Euro Stoxx 50" }
     ];
 
