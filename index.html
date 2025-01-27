@@ -4,34 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI News Tracker</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+        }
+        #news-list {
+            margin-top: 20px;
+        }
+        .article {
+            background-color: #333;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .article h2 {
+            margin-top: 0;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>🤖 AI News Tracker</h1>
+    <div class="container">
+        <h1>AI News Tracker</h1>
         <p>Daily updates on artificial intelligence advancements</p>
-    </header>
-
-    <main>
-        <section id="news-feed">
-            <div class="loader">Loading latest news...</div>
-        </section>
-
-        <section class="sources">
-            <h2>Tracked Sources</h2>
-            <ul>
-                <li>MIT Technology Review</li>
-                <li>AI Weekly</li>
-                <li>Google AI Blog</li>
-                <li>OpenAI</li>
-            </ul>
-        </section>
-    </main>
-
-    <footer>
-        <p>Updated daily - Built with GitHub Pages</p>
-    </footer>
-
-    <script src="scripts.js"></script>
+        <hr>
+        <div id="news-list">
+            <p>Loading latest news...</p>
+        </div>
+    </div>
+    <script src="scripts/fetchAPINews.js"></script>
 </body>
 </html>
