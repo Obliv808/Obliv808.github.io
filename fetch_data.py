@@ -8,7 +8,7 @@ CITIES = {
     "New York": (40.7128, -74.0060)
 }
 
-API_KEY = os.environ['df2bb042c263dbfbedcf2972b8b32135']
+API_KEY = os.environ['OWM_API_KEY']
 
 def fetch_data():
     all_data = {}
