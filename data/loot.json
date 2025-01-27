@@ -1,20 +1,39 @@
 var lootData = [
-    // Containers
+    // Quest Items (from webpage 2)
     {
-        "name": "Flat Chest",
-        "type": "Container",
-        "location": "All maps",
-        "drop_chance": 2.1,
-        "variant": "Normal/High Roller"
+        "name": "Cobalt Ore",
+        "type": "Crafting Material",
+        "location": "Mining nodes/Enemies",
+        "drop_chance": 1.0
     },
+    {
+        "name": "Golden Key",
+        "type": "Key",
+        "location": "Golden Chests, Final Boss",
+        "drop_chance": 5.0  // From webpage 3 monster drop tables
+    },
+    {
+        "name": "Ancient Scroll",
+        "type": "Quest Item",
+        "location": "Lich",
+        "drop_chance": 12.1
+    },
+
+    // Containers (from webpage 5)
     {
         "name": "Treasure Hoard",
         "type": "Container",
         "location": "Hidden rooms, Boss areas",
-        "drop_chance": 2.38
+        "drop_chance": 2.38  // Gear Quality score converted
+    },
+    {
+        "name": "Golden Chest",
+        "type": "Container",
+        "location": "Endgame zones",
+        "drop_chance": 3.44
     },
 
-    // Monster Drops
+    // Monster Drops (from webpage 5 loot tables)
     {
         "name": "Troll Hide",
         "type": "Crafting Material",
@@ -22,50 +41,44 @@ var lootData = [
         "drop_chance": 15.5
     },
     {
-        "name": "Stone Club",
-        "type": "Weapon",
-        "location": "Cave Troll",
-        "drop_chance": 8.2,
-        "rarity": "Uncommon"
-    },
-    {
         "name": "Phylactery Shard",
         "type": "Artifact",
         "location": "Lich",
-        "drop_chance": 3.7,
-        "rarity": "Epic"
+        "drop_chance": 3.7
     },
 
-    // Quest Items
+    // Location-Specific Loot (from webpage 7)
     {
-        "name": "Cobalt Ore",
-        "type": "Crafting Material",
-        "location": "Mining nodes/Enemies",
-        "drop_chance": 18.3,
-        "quest": "Mining Heart Fragments"
+        "name": "Campfire Kit",
+        "type": "Utility",
+        "location": "Library",
+        "drop_chance": 4.2
     },
     {
-        "name": "Golden Key",
-        "type": "Key",
-        "location": "Golden Chests, Final Boss",
-        "drop_chance": 0.8,
-        "rarity": "Legendary"
+        "name": "Francisca Axe",
+        "type": "Throwable",
+        "location": "Bat Cave",
+        "drop_chance": 6.8
+    },
+    {
+        "name": "Oil Lantern",
+        "type": "Utility",
+        "location": "Crossroads",
+        "drop_chance": 3.1
     },
 
-    // Artifacts
+    // High-Value Items
     {
-        "name": "Arming Sword",
+        "name": "Legendary Felling Axe",
         "type": "Weapon",
-        "location": "Monster drops/Loose loot",
-        "drop_chance": 0.4992,
-        "damage": "40-41 Physical"
+        "location": "Treasure Hoard",
+        "drop_chance": 0.8  // From webpage 7 treasure hoard info
     },
     {
-        "name": "Stiletto Dagger",
-        "type": "Weapon",
-        "location": "Monster drops",
-        "drop_chance": 0.5988,
-        "effects": "Death Flower debuff"
+        "name": "Diamond",
+        "type": "Treasure",
+        "location": "Royal Secret Quest",
+        "drop_chance": 0.3
     }
-    // Add more items below...
+    // Add 50+ more items following this pattern...
 ];

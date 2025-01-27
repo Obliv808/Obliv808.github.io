@@ -1,128 +1,77 @@
-# 🌍 Real-Time Air Quality Dashboard [![GitHub Pages](https://img.shields.io/badge/-Live%20Demo-success?logo=github)](https://YOUR-GITHUB-USERNAME.github.io/REPO-NAME/)
+# Dark and Darker Loot Database 🔍🗡️
 
-[![GitHub Actions](https://github.com/YOUR-GITHUB-USERNAME/REPO-NAME/actions/workflows/update_data.yml/badge.svg)](https://github.com/YOUR-GITHUB-USERNAME/REPO-NAME/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+![GitHub last commit](https://img.shields.io/github/last-commit/yourusername/darkanddarker-loot)
+![GitHub repo size](https://img.shields.io/github/repo-size/yourusername/darkanddarker-loot)
+![GitHub Pages](https://img.shields.io/badge/Hosted%20on-GitHub%20Pages-blue)
 
-A modern, responsive dashboard for monitoring real-time air quality data using OpenWeatherMap API and GitHub Pages.
+A community-maintained database for Dark and Darker loot information with instant search capabilities. Find item drop locations, probabilities, and related game data quickly.
 
-![Dashboard Preview](./screenshot.png)
+**Live Demo:** [https://yourusername.github.io/darkanddarker-loot/](https://yourusername.github.io/darkanddarker-loot/)
 
-## ✨ Features
+## Features ✨
+- 🔎 Instant search by item name, type, or location
+- 📊 Detailed drop chance statistics
+- 🗺️ Location-based loot filtering
+- 📱 Mobile-responsive design
+- 📦 Easy-to-update JSON data structure
+- 🧩 Categorized loot data (Containers, Monsters, Artifacts, Quests)
 
-- Real-time air quality index (AQI) display
-- Interactive pollutant concentration charts
-- Glass-morphism UI design with animations
-- Automatic daily data updates via GitHub Actions
-- Health impact assessment based on AQI
-- Mobile-responsive layout
-- Secure API key management
-- Self-updating timestamp
-
-## 🚀 Getting Started
-
-### Prerequisites
-- GitHub account
-- [OpenWeatherMap API Key](https://openweathermap.org/api)
-- Modern web browser
-
-### Installation
-1. Clone the repository:
-```bash
-git clone https://github.com/YOUR-GITHUB-USERNAME/REPO-NAME.git
-Get API Key:
-
-Sign up at OpenWeatherMap
-
-Add API key to GitHub Secrets:
-
-Go to Repository Settings → Secrets → Actions
-
-Add new secret named OWM_API_KEY
-
-Enable GitHub Pages:
-
-Go to Repository Settings → Pages
-
-Select deployment source (main branch /docs folder)
-
-🔧 Configuration
-Edit these files for customization:
-
-Cities: Modify coordinates in fetch_data.py
-
-Styling: Adjust CSS variables in index.html
-
-Update Frequency: Change cron schedule in .github/workflows/update_data.yml
-
-python
-Copy
-# fetch_data.py - Example city configuration
-CITIES = {
-    "London": (51.5074, -0.1278),
-    "New York": (40.7128, -74.0060)
+## Data Structure 📂
+```json
+{
+  "Containers": [...],
+  "Monsters": [...],
+  "QuestItems": [...],
+  "Artifacts": [...]
 }
-🛠️ Deployment
-The dashboard is automatically deployed to GitHub Pages:
+Installation & Usage 🛠️
+For Users
+Visit live demo site
+
+Type in search box to find items
+
+Click results to see detailed information
+
+For Contributors
+Clone repo:
 
 bash
 Copy
-https://YOUR-GITHUB-USERNAME.github.io/REPO-NAME/
-🧰 Tech Stack
-Frontend
-HTML5
-JavaScript
-Plotly.js
-Bootstrap
+git clone https://github.com/yourusername/darkanddarker-loot.git
+Edit data/loot.json following existing format
 
-Backend
-GitHub Actions
-Python
+Test changes locally by opening index.html
 
-Services
-OpenWeatherMap
-GitHub Pages
+Commit and push changes
 
-🤝 Contributing
-Fork the project
+Data Sources 📚
+Official Dark and Darker Wiki: Lootables
 
-Create your feature branch:
+Community Data: nfuwow Quest Items
 
-bash
-Copy
-git checkout -b feature/amazing-feature
-Commit changes:
+Game Client Datamining
 
-bash
-Copy
-git commit -m 'Add some amazing feature'
-Push to branch:
+Contributing 🤝
+We welcome community contributions! Here's how to help:
 
-bash
-Copy
-git push origin feature/amazing-feature
-Open a Pull Request
+Report missing items through Issues
 
-📄 License
-Distributed under the MIT License. See LICENSE for more information.
+Submit pull requests with JSON updates
 
-🌟 Acknowledgements
-Air Quality Data: OpenWeatherMap
+Verify data accuracy against wiki sources
 
-Icons: Font Awesome
+Follow existing formatting conventions
 
-Charting Library: Plotly.js
+Roadmap 🗺️
+Add item images
 
-Note: This project is for educational/demonstration purposes only. Not intended for production medical or environmental use.
+Implement advanced filters (rarity, item type)
 
-Copy
+Create location-based maps
 
-**To use:**
-1. Copy all content between the triple backticks
-2. Paste into a new `README.md` file in your project
-3. Replace these placeholders:
-   - `YOUR-GITHUB-USERNAME`
-   - `REPO-NAME`
-   - Add actual screenshot (replace `screenshot.png`)
-4. Commit to your repository
+Add crafting recipe integration
 
-The badge links and GitHub Pages URL will automatically work once you update the placeholders with your actual GitHub information.
+Include seasonal event items
+
+License 📄
+This project is licensed under the MIT License - see LICENSE.md for details.
