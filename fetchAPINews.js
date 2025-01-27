@@ -1,5 +1,6 @@
 const API_KEY = 'd24c02b69e3b436ba4a71f6f467040ae'; // Replace with your actual API key
-const NEWS_API_URL = `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?q=ai&apiKey=d24c02b69e3b436ba4a71f6f467040ae`;
+const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
+const NEWS_API_URL = `${CORS_PROXY}https://newsapi.org/v2/everything?q=ai&apiKey=${API_KEY}`;
 
 async function fetchAPINews() {
     try {
