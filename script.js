@@ -1,63 +1,72 @@
-// Configure Plotly theme
-const layout = {
-    paper_bgcolor: 'rgba(0,0,0,0)',
-    plot_bgcolor: 'rgba(0,0,0,0)',
-    font: { color: 'white' },
-    margin: { t: 30 },
-    xaxis: { gridcolor: 'rgba(255,255,255,0.1)' },
-    yaxis: { gridcolor: 'rgba(255,255,255,0.1)' },
-    showlegend: false
-};
+const API_KEY = '6UP434JIB442L992'; // Get free key from alphavantage.co
 
-// Fetch and display data
-fetch('data/processed_data.json')
-    .then(response => response.json())
-    .then(data => {
-        const { aqi, components } = data.list[0].main;
-        const pollutants = data.list[0].components;
-        
-        // Update AQI
-        document.getElementById('aqi-value').textContent = aqi;
-        
-        // Create pollutant chart
-        const trace = {
-            x: Object.keys(pollutants),
-            y: Object.values(pollutants),
-            type: 'bar',
-            marker: {
-                color: '#009ffd',
-                line: { color: '#2a2a72', width: 2 }
-            }
+let chart = null;
+let series = null;
+
+async function loadChart() {
+    const symbol = document.getElementById('stockSymbol').value.toUpperCase();
+    
+    // Fetch stock data
+    const response = await fetch(
+        `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${API_KEY}&outputsize=compact`
+    );
+    const data = await response.json();
+    
+    // Process data
+    const timeSeries = data['Time Series (Daily)'];
+    const chartData = Object.keys(timeSeries).map(date => {
+        return {
+            time: date,
+            open: parseFloat(timeSeries[date]['1. open']),
+            high: parseFloat(timeSeries[date]['2. high']),
+            low: parseFloat(timeSeries[date]['3. low']),
+            close: parseFloat(timeSeries[date]['4. close'])
         };
-        
-        Plotly.newPlot('chart', [trace], layout);
-        
-        // Update health impact
-        const healthImpact = document.getElementById('health-impact');
-        healthImpact.innerHTML = `
-            <div class="alert ${getAqiClass(aqi)}">
-                ${getHealthMessage(aqi)}
-            </div>
-        `;
-        
-        // Update timestamp
-        document.getElementById('update-time').textContent = new Date().toLocaleString();
-    });
+    }).reverse();
 
-function getAqiClass(aqi) {
-    const classes = [
-        'bg-success', 'bg-info', 'bg-warning', 'bg-danger', 'bg-dark'
-    ];
-    return classes[Math.min(aqi - 1, 4)];
+    // Create or update chart
+    const container = document.getElementById('priceChart');
+    if (!chart) {
+        chart = LightweightCharts.createChart(container, {
+            width: container.clientWidth,
+            height: 500,
+            layout: {
+                background: { color: '#1e222d' },
+                textColor: '#d1d4dc',
+            },
+            grid: {
+                vertLines: { color: '#363c4e' },
+                horzLines: { color: '#363c4e' },
+            },
+        });
+        
+        series = chart.addCandlestickSeries();
+    }
+    
+    series.setData(chartData);
+    
+    // Add moving average
+    const movingAverage = chartData.map(d => d.close).reduce((a, b) => a + b) / chartData.length;
+    const lineSeries = chart.addLineSeries();
+    lineSeries.setData(chartData.map(d => ({ time: d.time, value: movingAverage })));
+    
+    // Update indicators
+    const latest = chartData[chartData.length - 1];
+    const previous = chartData[chartData.length - 2];
+    const change = ((latest.close - previous.close) / previous.close * 100).toFixed(2);
+    
+    document.getElementById('priceChange').innerHTML = `
+        <h3>Price Change</h3>
+        <div style="color: ${change >= 0 ? '#26a69a' : '#ef5350'}">
+            ${change}%
+        </div>
+    `;
+    
+    document.getElementById('volume').innerHTML = `
+        <h3>Volume</h3>
+        <div>${latest.volume || 'N/A'}</div>
+    `;
 }
 
-function getHealthMessage(aqi) {
-    const messages = [
-        "Air quality is satisfactory",
-        "Moderate health concern",
-        "Unhealthy for sensitive groups",
-        "Unhealthy for everyone",
-        "Hazardous conditions"
-    ];
-    return messages[Math.min(aqi - 1, 4)];
-}
+// Load initial chart
+loadChart();
